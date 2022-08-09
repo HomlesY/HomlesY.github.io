@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>算法 | GhostYi的博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.队列的实现 队列是一种遵从先进先出原则的有序集合 添加新元素的一端称为队尾，另一端称为队首 JavaScript中没有队列，但可以用 Array 实现队列的所有功能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法">
+<meta property="og:url" content="http://example.com/2022/08/09/%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="GhostYi的博客">
+<meta property="og:description" content="1.队列的实现 队列是一种遵从先进先出原则的有序集合 添加新元素的一端称为队尾，另一端称为队首 JavaScript中没有队列，但可以用 Array 实现队列的所有功能">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://tva1.sinaimg.cn/mw690/007c1Ltfgy1h1fl86zfq3j30l30ca0vu.jpg">
+<meta property="og:image" content="http://tvax4.sinaimg.cn/mw690/007c1Ltfgy1h1fle2dae7j30km033gma.jpg">
+<meta property="article:published_time" content="2022-08-09T12:25:28.000Z">
+<meta property="article:modified_time" content="2022-08-09T12:26:38.550Z">
+<meta property="article:author" content="GhostYi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://tva1.sinaimg.cn/mw690/007c1Ltfgy1h1fl86zfq3j30l30ca0vu.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="GhostYi的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="/img/guiyi.jpg" class="js-avatar">
+				
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">
+					GhostYi
+				</a></h1>
+		</hgroup>
+
+		
+
+				<div class="switch-area">
+					<div class="switch-wrap">
+						<section class="switch-part switch-part1">
+							<nav class="header-menu">
+								<ul>
+									
+										<li><a href="/">
+												Home
+											</a></li>
+										
+										<li><a href="/archives">
+												Archives
+											</a></li>
+										
+								</ul>
+							</nav>
+							<nav class="half-header-menu">
+								<a class="hide">Home</a>
+								<a>Tags</a>
+								<a>Links</a>
+								<a>About</a>
+							</nav>
+							<nav class="header-nav">
+								<div class="social">
+									
+								</div>
+								<!-- music -->
+								
+							</nav>
+						</section>
+
+						
+							<section class="switch-part switch-part2">
+								<div class="widget tagcloud" id="js-tagcloud">
+									
+								</div>
+							</section>
+							
+
+								
+									<section class="switch-part switch-part3">
+										<div id="js-friends">
+											
+												<a target="_blank" class="main-nav-link switch-friends-link"
+													href="https://github.com/">
+													github
+												</a>
+												
+										</div>
+									</section>
+									
+
+										
+											
+														<section class="switch-part switch-part4">
+															
+																<div id="js-aboutme">
+																	I&#39;m a developer.
+																</div>
+														</section>
+														
+					</div>
+				</div>
+	</header>
+</div>
+<div style="position:absolute; bottom: 50px; left: 30px; width:50%;">
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=250 height=86 src="//music.163.com/outchain/player?type=2&id=1919147134&auto=1&height=66"></iframe>
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/guiyi.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-算法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/08/09/%E7%AE%97%E6%B3%95/" class="article-date">
+  	<time datetime="2022-08-09T12:25:28.000Z" itemprop="datePublished">2022-08-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      算法
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-队列的实现"><a href="#1-队列的实现" class="headerlink" title="1.队列的实现"></a>1.队列的实现</h2><ul>
+<li>队列是一种遵从先进先出原则的有序集合</li>
+<li>添加新元素的一端称为队尾，另一端称为队首</li>
+<li>JavaScript中没有队列，但可以用 Array 实现队列的所有功能</li>
+</ul>
+<span id="more"></span>
+
+<p>基于数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Queue</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 用于存储队列数据</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">queue</span> = [];</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">count</span> = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 入队方法</span></span><br><span class="line">  <span class="title function_">enQueue</span>(<span class="params">item</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">queue</span>[<span class="variable language_">this</span>.<span class="property">count</span>++] = item;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 出队方法</span></span><br><span class="line">  <span class="title function_">deQueue</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="title function_">isEmpty</span>()) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 删除 queue 的第一个元素，会有空值占位</span></span><br><span class="line">    <span class="comment">// delete this.queue[0]</span></span><br><span class="line">    <span class="comment">// 利用 shift() 移除数组的第一个元素</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">count</span>--;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">queue</span>.<span class="title function_">shift</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">isEmpty</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">count</span> === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 获取队首元素值</span></span><br><span class="line">  <span class="title function_">top</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="title function_">isEmpty</span>()) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">queue</span>[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">size</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">count</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">clear</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// this.queue = []</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">length</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">count</span> = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> q = <span class="keyword">new</span> <span class="title class_">Queue</span>();</span><br></pre></td></tr></table></figure>
+
+
+
+<p>基于对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Queue</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">queue</span> = &#123;&#125;;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">count</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 用于记录队首的键</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">head</span> = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 入队方法</span></span><br><span class="line">  <span class="title function_">enQueue</span>(<span class="params">item</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">queue</span>[<span class="variable language_">this</span>.<span class="property">count</span>++] = item;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 出队方法</span></span><br><span class="line">  <span class="title function_">deQueue</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="title function_">isEmpty</span>()) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> headData = <span class="variable language_">this</span>.<span class="property">queue</span>[<span class="variable language_">this</span>.<span class="property">head</span>];</span><br><span class="line">    <span class="keyword">delete</span> <span class="variable language_">this</span>.<span class="property">queue</span>[<span class="variable language_">this</span>.<span class="property">head</span>];</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">head</span>++;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">count</span>--;</span><br><span class="line">    <span class="keyword">return</span> headData;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">isEmpty</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">count</span> === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">clear</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">queue</span> = &#123;&#125;;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">count</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">head</span> = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> q = <span class="keyword">new</span> <span class="title class_">Queue</span>();</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="2-什么场景用队列"><a href="#2-什么场景用队列" class="headerlink" title="2.什么场景用队列"></a>2.什么场景用队列</h2><p>需要先进先出的场景</p>
+<ul>
+<li>食堂排队打饭、JS异步中的任务队列、计算最近请求次数</li>
+</ul>
+<p>场景一：食堂排队打饭</p>
+<ul>
+<li>食堂只留一个窗口，学生排队打饭似春运</li>
+<li>先进先出，保证有序</li>
+</ul>
+<p>场景二:JS异步中的任务队列</p>
+<p><img src="//tva1.sinaimg.cn/mw690/007c1Ltfgy1h1fl86zfq3j30l30ca0vu.jpg" alt="image"></p>
+<ul>
+<li>JS是单线程，无法同时处理异步中的并发任务</li>
+<li>使用任务队列先后处理异步任务</li>
+</ul>
+<p>场景三：计算最近请求次数</p>
+<p><img src="//tvax4.sinaimg.cn/mw690/007c1Ltfgy1h1fle2dae7j30km033gma.jpg" alt="image"></p>
+<ul>
+<li>有新请求就入队，3000ms前发出的请求出队</li>
+<li>队列的长度就是最近请求次数</li>
+</ul>
+<h2 id="3-最近的请求次数"><a href="#3-最近的请求次数" class="headerlink" title="3.最近的请求次数"></a>3.最近的请求次数</h2><p>解题思路：</p>
+<ul>
+<li>越早发出的请求越早不在最近3000ms内的请求里</li>
+<li>满足先进先出，考虑用队列</li>
+</ul>
+<p>解题步骤：</p>
+<ul>
+<li>有新请求就入队，3000ms前发出的请求出队</li>
+<li>队列的长度就是最近请求次数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">RecentCounter</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">q</span> = [];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">t</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">number</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="title class_">RecentCounter</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">ping</span> = <span class="keyword">function</span>(<span class="params">t</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">q</span>.<span class="title function_">push</span>(t);</span><br><span class="line">    <span class="keyword">while</span>(<span class="variable language_">this</span>.<span class="property">q</span>[<span class="number">0</span>] &lt; t - <span class="number">3000</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">q</span>.<span class="title function_">shift</span>()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">q</span>.<span class="property">length</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/08/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 GhostYi
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
