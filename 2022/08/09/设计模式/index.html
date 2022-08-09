@@ -1,210 +1,148 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>设计模式 | GhostYi的博客</title>
-
-  <!-- keywords -->
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言：瞬息万变的前端，也具备一些长久的通用型技术，例如性能优化和设计模式 设计模式就犹如游戏里面的连招技巧一样，这些连招经验就是设计模式">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>设计模式 | GhostYi的博客</title><meta name="author" content="GhostYi"><meta name="copyright" content="GhostYi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言：瞬息万变的前端，也具备一些长久的通用型技术，例如性能优化和设计模式 设计模式就犹如游戏里面的连招技巧一样，这些连招经验就是设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式">
 <meta property="og:url" content="http://example.com/2022/08/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="GhostYi的博客">
 <meta property="og:description" content="前言：瞬息万变的前端，也具备一些长久的通用型技术，例如性能优化和设计模式 设计模式就犹如游戏里面的连招技巧一样，这些连招经验就是设计模式">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/xixixiaoyu/CloundImg2/main/%E8%A7%82%E5%AF%9F%E8%80%85vs%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/xixixiaoyu/CloundImg2/main/MVC.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/xixixiaoyu/CloundImg2/main/MVVM.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/xixixiaoyu/CloundImg2/main/vue-mvvm.png">
+<meta property="og:image" content="https://w.wallhaven.cc/full/eo/wallhaven-eo2zr8.jpg">
 <meta property="article:published_time" content="2022-08-09T12:07:14.545Z">
-<meta property="article:modified_time" content="2022-08-09T12:19:11.657Z">
+<meta property="article:modified_time" content="2022-08-09T13:25:05.094Z">
 <meta property="article:author" content="GhostYi">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/xixixiaoyu/CloundImg2/main/%E8%A7%82%E5%AF%9F%E8%80%85vs%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85.png">
-  
-    <link rel="alternative" href="/atom.xml" title="GhostYi的博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/img/favicon.ico">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="https://w.wallhaven.cc/full/eo/wallhaven-eo2zr8.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/08/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '设计模式',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-08-09 21:25:05'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-
-  
-<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
-
-  
-<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-
-
-  
-<meta name="generator" content="Hexo 5.4.2"></head>
-<body>
-  <div id="container">
-    <div id="particles-js"></div>
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-				<img lazy-src="/img/guiyi.jpg" class="js-avatar">
-				
-		</a>
-
-		<hgroup>
-			<h1 class="header-author"><a href="/">
-					GhostYi
-				</a></h1>
-		</hgroup>
-
-		
-
-				<div class="switch-area">
-					<div class="switch-wrap">
-						<section class="switch-part switch-part1">
-							<nav class="header-menu">
-								<ul>
-									
-										<li><a href="/">
-												Home
-											</a></li>
-										
-										<li><a href="/archives">
-												Archives
-											</a></li>
-										
-								</ul>
-							</nav>
-							<nav class="half-header-menu">
-								<a class="hide">Home</a>
-								<a>Tags</a>
-								<a>Links</a>
-								<a>About</a>
-							</nav>
-							<nav class="header-nav">
-								<div class="social">
-									
-								</div>
-								<!-- music -->
-								
-							</nav>
-						</section>
-
-						
-							<section class="switch-part switch-part2">
-								<div class="widget tagcloud" id="js-tagcloud">
-									
-								</div>
-							</section>
-							
-
-								
-									<section class="switch-part switch-part3">
-										<div id="js-friends">
-											
-												<a target="_blank" class="main-nav-link switch-friends-link"
-													href="https://github.com/">
-													github
-												</a>
-												
-										</div>
-									</section>
-									
-
-										
-											
-														<section class="switch-part switch-part4">
-															
-																<div id="js-aboutme">
-																	I&#39;m a developer.
-																</div>
-														</section>
-														
-					</div>
-				</div>
-	</header>
-</div>
-<div style="position:absolute; bottom: 50px; left: 30px; width:50%;">
-	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=250 height=86 src="//music.163.com/outchain/player?type=2&id=1919147134&auto=1&height=66"></iframe>
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide"></h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				<img lazy-src="/img/guiyi.jpg" class="js-avatar">
-			</div>
-			<hgroup>
-			  <h1 class="header-author"></h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">Home</a></li>
-		        
-					<li><a href="/archives">Archives</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-				</div>
-			</nav>
-		</header>				
-	</div>
-</nav>
-      <div class="body-wrap"><article id="post-设计模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2022/08/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="article-date">
-  	<time datetime="2022-08-09T12:07:14.545Z" itemprop="datePublished">2022-08-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-      <input type="hidden" class="isFancy" />
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      设计模式
-      
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-        
-
-        
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前言：瞬息万变的前端，也具备一些长久的通用型技术，例如性能优化和设计模式</p>
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="GhostYi的博客" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/guiyi.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://w.wallhaven.cc/full/eo/wallhaven-eo2zr8.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">GhostYi的博客</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">设计模式</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-08-09T12:07:14.545Z" title="Created 2022-08-09 20:07:14">2022-08-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-08-09T13:25:05.094Z" title="Updated 2022-08-09 21:25:05">2022-08-09</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="设计模式"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>前言：瞬息万变的前端，也具备一些长久的通用型技术，例如性能优化和设计模式</p>
 <p>设计模式就犹如游戏里面的连招技巧一样，这些连招经验就是设计模式</p>
 <span id="more"></span>
 
@@ -424,81 +362,4 @@
 </ul>
 <p><img src="https://raw.githubusercontent.com/xixixiaoyu/CloundImg2/main/MVVM.png"></p>
 <img src="https://raw.githubusercontent.com/xixixiaoyu/CloundImg2/main/vue-mvvm.png" style="zoom:50%;" />
-
-      
-    </div>
-    
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2022/08/09/%E7%AE%97%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          算法
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/08/09/My-New-Post/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">My New Post</div>
-      <strong class="article-nav-caption">&gt;</strong>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-
-
-
-
-</div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-      <div class="footer-left">
-        &copy; 2022 GhostYi
-      </div>
-        <div class="footer-right">
-          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
-        </div>
-    </div>
-  </div>
-</footer>
-    </div>
-    
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-
-
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: false,
-		animate: true,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
-</script>
-
-<script src="/js/main.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>
-<!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/love.js"></script>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">GhostYi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/08/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">http://example.com/2022/08/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://w.wallhaven.cc/full/eo/wallhaven-eo2zr8.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/08/09/%E7%AE%97%E6%B3%95/"><img class="prev-cover" src="https://w.wallhaven.cc/full/42/wallhaven-42ym90.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">算法</div></div></a></div><div class="next-post pull-right"><a href="/2022/08/09/My-New-Post/"><img class="next-cover" src="https://w.wallhaven.cc/full/42/wallhaven-42ym90.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">My New Post</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/guiyi.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">GhostYi</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/HomlesY" target="_blank" title=""><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">1.工厂模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">2.单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">3.代理模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">4.迭代器模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">5.适配器模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">6.装饰器模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F"><span class="toc-number">7.</span> <span class="toc-text">7.原型模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">8.</span> <span class="toc-text">8.策略模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F"><span class="toc-number">9.</span> <span class="toc-text">9.状态模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E5%92%8C%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F"><span class="toc-number">10.</span> <span class="toc-text">10.观察者模式和发布订阅模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="toc-number">10.1.</span> <span class="toc-text">观察者模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F"><span class="toc-number">10.2.</span> <span class="toc-text">发布订阅模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E8%80%85%E5%8C%BA%E5%88%AB"><span class="toc-number">10.3.</span> <span class="toc-text">两者区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-MVC-%E5%92%8C-MVVM"><span class="toc-number">11.</span> <span class="toc-text">11.MVC 和 MVVM</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/08/09/%E7%AE%97%E6%B3%95/" title="算法"><img src="https://w.wallhaven.cc/full/42/wallhaven-42ym90.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法"/></a><div class="content"><a class="title" href="/2022/08/09/%E7%AE%97%E6%B3%95/" title="算法">算法</a><time datetime="2022-08-09T12:25:28.000Z" title="Created 2022-08-09 20:25:28">2022-08-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式"><img src="https://w.wallhaven.cc/full/eo/wallhaven-eo2zr8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式"/></a><div class="content"><a class="title" href="/2022/08/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式">设计模式</a><time datetime="2022-08-09T12:07:14.545Z" title="Created 2022-08-09 20:07:14">2022-08-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/09/My-New-Post/" title="My New Post"><img src="https://w.wallhaven.cc/full/42/wallhaven-42ym90.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="My New Post"/></a><div class="content"><a class="title" href="/2022/08/09/My-New-Post/" title="My New Post">My New Post</a><time datetime="2022-08-09T05:42:10.000Z" title="Created 2022-08-09 13:42:10">2022-08-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/08/hello-world/" title="Hello World"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2022/08/08/hello-world/" title="Hello World">Hello World</a><time datetime="2022-08-08T15:03:12.188Z" title="Created 2022-08-08 23:03:12">2022-08-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By GhostYi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
